@@ -1,0 +1,31 @@
+{
+  "name": "viki",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Brandon.sorgdrager@gmail.com",
+  "description": "Slack automation bot",
+  "dependencies": {
+    "hubot": "^2.19.0",
+    "hubot-cron": ">= 0.1.0",
+    "hubot-diagnostics": "0.0.2",
+    "hubot-google-images": "^0.2.7",
+    "hubot-google-translate": "^0.2.1",
+    "hubot-help": "^0.2.2",
+    "hubot-heroku-keepalive": "^1.0.3",
+    "hubot-maps": "0.0.3",
+    "hubot-pugme": "^0.1.1",
+    "hubot-redis-brain": "0.0.4",
+    "hubot-rules": "^0.1.2",
+    "hubot-scripts": "^2.17.2",
+    "hubot-shipit": "^0.2.1",
+    "hubot-slack": "^4.4.0",
+    "latest": "^0.2.0",
+    "plotly": "^1.0.6",
+    "underscore": ">= 1.4.2",
+    "node-coinmarketcap-api": "latest",
+    "node-cron": "latest"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
