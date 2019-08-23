@@ -1,7 +1,7 @@
 # Sonny
-[![Docker Automated](https://img.shields.io/docker/automated/bsord/bsord.svg)](https://hub.docker.com/r/bsord/sonny/)
-[![Docker Build](https://img.shields.io/docker/automated/bsord/bsord.svg)](https://hub.docker.com/r/bsord/sonny/)
-[![Docker Pulls](https://img.shields.io/docker/automated/bsord/bsord.svg)](https://hub.docker.com/r/bsord/sonny/)
+[![Docker Automated](https://img.shields.io/docker/automated/bsord/sonny.svg)](https://hub.docker.com/r/bsord/sonny/)
+[![Docker Build](https://img.shields.io/docker/automated/bsord/sonny.svg)](https://hub.docker.com/r/bsord/sonny/)
+[![Docker Pulls](https://img.shields.io/docker/automated/bsord/sonny.svg)](https://hub.docker.com/r/bsord/sonny/)
 
 A Dockerized Slackbot running Hubot v3
 <br>
