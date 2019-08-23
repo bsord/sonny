@@ -5,6 +5,8 @@
   "author": "bsord <brandon.sorgdrager@gmail.com>",
   "description": "A slack automation bot",
   "dependencies": {
+    "@slack/client": "^5.0.2",
+    "@slack/web-api": "^5.1.0",
     "hubot": "^3.3.2",
     "hubot-diagnostics": "^1.0.0",
     "hubot-google-images": "^0.2.7",
@@ -13,12 +15,14 @@
     "hubot-maps": "0.0.3",
     "hubot-pugme": "^0.1.1",
     "hubot-redis-brain": "^1.0.0",
+    "hubot-restart": "^1.1.0",
     "hubot-rules": "^1.0.0",
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.1",
     "hubot-slack": "^4.7.1",
     "hubot-sonny": "^1.0.4",
-    "hubot-uptime": "^1.0.1"
+    "hubot-uptime": "^1.0.1",
+    "moment-timezone": "^0.5.26"
   },
   "engines": {
     "node": "0.10.x"
