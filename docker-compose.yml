@@ -1,0 +1,23 @@
+version: '2.3'
+
+services:
+    hubot:
+        container_name: hubot
+        restart: always
+        build:
+          context: .
+          target: dev
+        volumes:
+          - .:/app:delegated
+        env_file:
+          - .env
+        environment:
+          - REDIS_URL="redis://redis:6379
+        links:
+          - redis
+    redis:
+        container_name: hubot-redis
+        restart: always
+        image: redis
+        ports:
+          - "6379:6379"

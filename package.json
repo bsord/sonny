@@ -8,6 +8,7 @@
     "@slack/client": "^5.0.2",
     "@slack/web-api": "^5.1.0",
     "hubot": "^3.3.2",
+    "hubot-chatlog": "^1.0.1",
     "hubot-diagnostics": "^1.0.0",
     "hubot-google-images": "^0.2.7",
     "hubot-google-translate": "^0.2.1",
