@@ -10,5 +10,6 @@
   "hubot-shipit",
   "hubot-sonny",
   "hubot-uptime",
-  "hubot-restart"
+  "hubot-restart",
+  "hubot-healthz"
 ]
