@@ -23,6 +23,7 @@
     "hubot-slack": "^4.7.1",
     "hubot-sonny": "^1.0.4",
     "hubot-uptime": "^1.0.1",
+    "hubot-healthz": "1.0.1",
     "moment-timezone": "^0.5.26"
   },
   "engines": {

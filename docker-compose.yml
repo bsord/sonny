@@ -11,6 +11,8 @@ services:
           - .:/app:delegated
         env_file:
           - .env
+        ports:
+          - "9090:8080"
         environment:
           - REDIS_URL="redis://redis:6379
         links:
