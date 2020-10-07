@@ -21,7 +21,7 @@
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.1",
     "hubot-slack": "^4.7.1",
-    "hubot-sonny": "^1.0.4",
+    "hubot-sonny": "^1.0.5",
     "hubot-uptime": "^1.0.1",
     "hubot-healthz": "1.0.1",
     "moment-timezone": "^0.5.26"
