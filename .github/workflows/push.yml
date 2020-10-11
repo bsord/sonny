@@ -37,8 +37,21 @@ jobs:
 
           name: Build and Publish
 
+
+
+name: "Build and publish Docker image"
+
+env:
+  # Docker image name to publish to
+  IMAGE_NAME: bsord/sonny
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
   push-docker-image:
-    needs: bump-version
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
