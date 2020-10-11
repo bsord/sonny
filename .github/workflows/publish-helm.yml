@@ -1,21 +1,27 @@
   
 # This is a basic workflow to help you get started with Actions
 
-name: 'Push Helm Chart Manual'
+name: 'Push Helm Chart'
 
-on: 
-  workflow_dispatch:
+on:
+  push:
+    tags:
+    - '*'
 jobs:
   push-helm-chart:
     runs-on: ubuntu-latest
     name: Push helm chart to CodeFresh repo
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v2
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - name: Push Helm Chart
-        uses: bsord/helm-push@v1
+        uses: bsord/helm-push@v2
         with:
           access-token: ${{ secrets.CF_API_KEY }}
           repository-url: 'https://h.cfcr.io/bsord/charts'
           force: true
           chart-folder: chart
+          version: ${{ steps.vars.outputs.tag }}
+          appVersion: ${{ steps.vars.outputs.tag }}
