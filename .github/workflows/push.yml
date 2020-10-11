@@ -49,6 +49,8 @@ on:
   push:
     tags:
     - '*'
+
+jobs:
   push-docker-image:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
