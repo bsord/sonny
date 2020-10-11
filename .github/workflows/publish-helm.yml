@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Push helm chart to CodeFresh repo
     steps:
+      - uses: actions/checkout@v2
       - name: Checkout
         id: checkout
-        uses: actions/checkout@v2
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - name: Push Helm Chart
         uses: bsord/helm-push@v2
@@ -23,5 +23,5 @@ jobs:
           repository-url: 'https://h.cfcr.io/bsord/charts'
           force: true
           chart-folder: chart
-          version: ${{ steps.vars.outputs.tag }}
-          appVersion: ${{ steps.vars.outputs.tag }}
+          version: ${{ steps.checkout.outputs.tag }}
+          appVersion: ${{ steps.checkout.outputs.tag }}
