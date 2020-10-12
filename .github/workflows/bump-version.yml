@@ -25,12 +25,12 @@ jobs:
       
       - name: Update package.json version
         run: |
-          sed  -i '/version/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" package.json
+          sed  -i 's/\({"version":"\)[^"]*\("}\)/\1${{ steps.get-next-version.outputs.new_version }}\2/g' package.json
 
       - name: Update Chart.yml version and appVersion
         run: |
-          sed  -i '/version/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" ./chart/Chart.yaml
-          sed  -i '/appVersion/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" ./chart/Chart.yaml
+          sed  -i 's/\({"version":"\)[^"]*\("}\)/\1${{ steps.get-next-version.outputs.new_version }}\2/g' ./chart/Chart.yaml
+          sed  -i 's/\({"appVersion":"\)[^"]*\("}\)/\1${{ steps.get-next-version.outputs.new_version }}\2/g' ./chart/Chart.yaml
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
