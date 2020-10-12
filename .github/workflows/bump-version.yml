@@ -1,17 +1,23 @@
-name: "Bump Version"
+name: "Bump, Tag, Build, and Publish"
+# SECRETS NEEDED:
+# CR_USERNAME - Container Registry Username (github or dockerhub)
+# CR_PAT - Container registry Personal access token with push priveledges
+# CF_API_KEY - ChartMuseum API Key with permission to push
+# CF_REPO_URL - ChartMusuem REPO URL in the format: 'https://h.cfcr.io/bsord/charts'
+# GITHUB_TOKEN - This one is assumed, provided by github automatically
 
 env:
   # Docker image name to publish to
   IMAGE_NAME: bsord/sonny
-  
+
 on:
   push:
     branches:
       - "master"
 
 jobs:
-  tag-and-publish:
-    name: "Tag and Publish"
+  bump-tag-publish:
+    name: "Bump, Tag, Build, and Publish"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
@@ -34,8 +40,6 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         with:
-          author_name: AutoCommit Bot
-          author_email: brandon.sorgdrager@gmail.com
           message: "Auto version bump to: ${{ steps.get-next-version.outputs.new_version }}"
           tag: "${{ steps.get-version.outputs.new_version }}"
         env:
@@ -73,7 +77,7 @@ jobs:
         uses: bsord/helm-push@v2
         with:
           access-token: ${{ secrets.CF_API_KEY }}
-          repository-url: 'https://h.cfcr.io/bsord/charts'
+          repository-url: ${{ secrets.CF_REPO_URL }} 
           force: true
           chart-folder: chart
       
