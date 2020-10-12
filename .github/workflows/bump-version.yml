@@ -24,10 +24,12 @@ jobs:
           dry_run: true
       
       - name: Update package.json version
-        run: | sed  -i '/version/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" package.json
+        run: |
+          sed  -i '/version/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" package.json
 
       - name: Update Chart.yml version and appVersion
-        run: | sed  -i '/version/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" ./chart/Chart.yaml
+        run: |
+          sed  -i '/version/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" ./chart/Chart.yaml
           sed  -i '/appVersion/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" ./chart/Chart.yaml
 
       - name: Commit changes
