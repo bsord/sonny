@@ -38,7 +38,7 @@ jobs:
           author_name: AutoCommit Bot
           author_email: brandon.sorgdrager@gmail.com
           message: "Auto version bump to: ${{ steps.get-next-version.outputs.new_version }}"
-          tag: "${{ steps.get-version.outputs.new_version }} --force"
+          tag: "${{ steps.get-version.outputs.new_version }} -f"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
