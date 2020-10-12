@@ -1,5 +1,9 @@
 name: "Bump Version"
 
+env:
+  # Docker image name to publish to
+  IMAGE_NAME: bsord/sonny
+  
 on:
   push:
     branches:
