@@ -55,3 +55,7 @@ Docker ports can be exposed to extend functionality, such as with webhooks, usin
 
 `-p 8080:8080 (<External Port>:<Internal Docker Port>)`
 
+### TODO:
+- [x] Add automated semver updates and tagging
+- [ ] Add Auto docker and helm publishing
+
