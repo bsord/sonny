@@ -25,7 +25,7 @@ jobs:
       
       - name: Update package.json version
         run: |
-          sed  -i 's/("version":[^*])(\")[[:digit:].]*(\")/\1${{ steps.get-next-version.outputs.new_version }}\2/g' package.json
+          sed  -i 's/("version":[^*]")([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.new_version }}/g' package.json
 
       - name: Update Chart.yml version and appVersion
         run: |
