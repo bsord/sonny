@@ -19,6 +19,7 @@ jobs:
         id: get-next-version
         uses: mathieudutour/github-tag-action@v4.5
         with:
+          tag_prefix: ''
           dry_run: true
       
       - name: Update source code versions
@@ -40,6 +41,7 @@ jobs:
         uses: mathieudutour/github-tag-action@v4.5
         with:
           create_annotated_tag: true
+          tag_prefix: ''
           github_token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Build, tag, and push Docker image
