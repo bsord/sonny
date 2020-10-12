@@ -10,28 +10,34 @@ jobs:
     name: "Bump Version on master"
     runs-on: ubuntu-latest
 
+    # CHECKOUT THE SOURCE CODE, DUH
     steps:
-      - name: "Checkout source code"
+      - name: Checkout source code
         uses: "actions/checkout@v2"
         with:
           ref: ${{ github.ref }}
-          token: ${{ secrets.GH_PAT }}
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v1"
+
+      - name: Get next tag version based on semantic commit messages
+        id: get-next-version
+        uses: mathieudutour/github-tag-action@v4.5
         with:
-          node-version: 12
-      - name: "Automated Version Bump"
-        uses: "phips28/gh-action-bump-version@master"
+          dry_run: true
+      
+      - name: Update package.json version
+        run: | sed  -i '/version/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" package.json
+
+      - name: Update Chart.yml version and appVersion
+        run: | sed  -i '/version/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" ./chart/Chart.yaml
+          sed  -i '/appVersion/s/[^.]*$/'"${{ steps.get-next-version.outputs.new_version }}\"/" ./chart/Chart.yaml
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
         with:
-          tag-prefix: ''
-          minor-wording:  'add,new,feat,feature'
-          major-wording:  'MAJOR, refactor'
-          #patch-wording:  'patch, fix'     # Providing patch-wording will override commits defaulting to a patch bump.
-          rc-wording:     'RELEASE,alpha'
+          author_name: AutoCommit Bot
+          author_email: brandon.sorgdrager@gmail.com
+          message: "Auto version bump to: ${{ steps.get-next-version.outputs.new_version }}"
+          tag: "${{ steps.get-version.outputs.new_version }} --force"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-          name: Build and Publish
 
 
