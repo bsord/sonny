@@ -35,14 +35,14 @@ jobs:
       
       - name: Update source code versions
         run: |
-          sed -r -i 's/(\"version\":[^*]\")([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.new_version }}/g' package.json
-          sed -r -i 's/(version:[^*]|appVersion:[^*])([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.new_version }}/g' ./chart/Chart.yaml
+          sed -r -i 's/(\"version\":[^*]\")([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.new_tag }}/g' package.json
+          sed -r -i 's/(version:[^*]|appVersion:[^*])([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.new_tag }}/g' ./chart/Chart.yaml
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         with:
-          message: "Auto version bump to: ${{ steps.get-next-version.outputs.new_version }}"
-          tag: "${{ steps.get-version.outputs.new_version }}"
+          message: "Auto version bump to: ${{ steps.get-next-version.outputs.new_tag }}"
+          tag: "${{ steps.get-version.outputs.new_tag }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
