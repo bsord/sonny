@@ -31,9 +31,7 @@ jobs:
         with:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
-          output-file: false
           skip-version-file: true
-          skip-commit: true
           dry-run: true
 
       - name: Update source code versions
@@ -44,7 +42,7 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         with:
-          message: "Auto version bump to: ${{ steps.get-next-version.outputs.version }}"
+          message: "chore(version): Bump to: ${{ steps.get-next-version.outputs.version }}"
           tag: "${{ steps.get-version.outputs.version }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
