@@ -27,30 +27,32 @@ jobs:
 
       - name: Get next semver
         id: get-next-version
-        uses: anothrNick/github-tag-action@1.26.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: false
-          DRY_RUN: true
-      
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.github_token }}
+          tag-prefix: ''
+          output-file: false
+          skip-version-file: true
+          skip-commit: true
+
       - name: Update source code versions
         run: |
-          sed -r -i 's/(\"version\":[^*]\")([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.new_tag }}/g' package.json
-          sed -r -i 's/(version:[^*]|appVersion:[^*])([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.new_tag }}/g' ./chart/Chart.yaml
+          sed -r -i 's/(\"version\":[^*]\")([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.version }}/g' package.json
+          sed -r -i 's/(version:[^*]|appVersion:[^*])([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.version }}/g' ./chart/Chart.yaml
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         with:
-          message: "Auto version bump to: ${{ steps.get-next-version.outputs.new_tag }}"
-          tag: "${{ steps.get-version.outputs.new_tag }}"
+          message: "Auto version bump to: ${{ steps.get-next-version.outputs.version }}"
+          tag: "${{ steps.get-version.outputs.version }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push Tag
-        uses: anothrNick/github-tag-action@1.26.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: false
+      - name: Conventional Changelog Action
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.github_token }}
+          tag-prefix: ''
       
       - name: Build, tag, and push Docker image
         run: |
