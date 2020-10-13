@@ -7,7 +7,6 @@
   "hubot-maps",
   "hubot-redis-brain",
   "hubot-rules",
-  "hubot-sonny",
   "hubot-uptime",
   "hubot-restart",
   "hubot-healthz"
