@@ -27,13 +27,14 @@ jobs:
 
       - name: Get next semver
         id: get-next-version
-        uses: TriPSs/conventional-changelog-action@v3
+        uses: bsord/conventional-changelog-action@v1
         with:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
           output-file: false
           skip-version-file: true
           skip-commit: true
+          dry-run: true
 
       - name: Update source code versions
         run: |
@@ -47,12 +48,12 @@ jobs:
           tag: "${{ steps.get-version.outputs.version }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: Checkout source code
         uses: "actions/checkout@v2"
 
       - name: Conventional Changelog Action
-        uses: TriPSs/conventional-changelog-action@v3
+        uses: bsord/conventional-changelog-action@v1
         with:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
