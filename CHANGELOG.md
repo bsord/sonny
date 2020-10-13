@@ -1,3 +1,12 @@
+## [0.10.4](https://github.com/bsord/sonny/compare/0.10.3...0.10.4) (2020-10-13)
+
+
+### Bug Fixes
+
+* **workflow:** correct username and password variables for docker step in workflow ([ef83ace](https://github.com/bsord/sonny/commit/ef83aceb98e8ae671d821b8b3a469f9247b7b975))
+
+
+
 ## [0.10.3](https://github.com/bsord/sonny/compare/0.10.2...0.10.3) (2020-10-13)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * **changelog:** generate change log only on feature bump ([51527bd](https://github.com/bsord/sonny/commit/51527bdd0524d17b5ce37b329ecbe69ec4096b6a))
-
-
-
-## [0.9.1](https://github.com/bsord/sonny/compare/0.9.0...0.9.1) (2020-10-13)
-
-
-### Bug Fixes
-
-* **changelog:** use tags instead of version file for bumping ([b359205](https://github.com/bsord/sonny/commit/b35920504fdd7456ca5a42dd76a74b43ab724545))
 
 
 
