@@ -57,5 +57,5 @@ Docker ports can be exposed to extend functionality, such as with webhooks, usin
 
 ### TODO:
 - [x] Add automated semver updates and tagging
-- [ ] Add Auto docker and helm publishing
+- [x] Add Auto docker and helm publishing
 
