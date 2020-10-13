@@ -1,4 +1,4 @@
-name: "Bump, Tag, Build, and Publish"
+name: "Release"
 # SECRETS NEEDED:
 # DOCKER_USERNAME - Container Registry Username (github or dockerhub)
 # DOCKER_ACCESS_TOKEN - Container registry Personal access token with push priveledges
@@ -11,8 +11,8 @@ on:
       - "master"
 
 jobs:
-  bump-tag-publish:
-    name: "Bump, Tag, Build, and Publish"
+  release:
+    name: "Release"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
@@ -42,7 +42,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create tag and generate change log
+      - name: Generate changelog and tag with new version
         uses: bsord/conventional-changelog-action@v3.7.0
         with:
           github-token: ${{ secrets.github_token }}
@@ -58,7 +58,7 @@ jobs:
           release_name: ${{ steps.get-next-version.outputs.version }}
           body: ${{ steps.get-next-version.outputs.clean_changelog }}
 
-      - name: Build and publish docker image
+      - name: Build and publish Docker image
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: ${{ github.repository }}
@@ -66,7 +66,7 @@ jobs:
           password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
           tags: "latest,${{ steps.get-next-version.outputs.version }}"
 
-      - name: Push Helm Chart
+      - name: Push Helm chart
         uses: bsord/helm-push@v2
         with:
           access-token: ${{ secrets.CM_API_KEY }}
