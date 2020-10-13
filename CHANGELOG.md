@@ -1,3 +1,12 @@
+## [0.10.3](https://github.com/bsord/sonny/compare/0.10.2...0.10.3) (2020-10-13)
+
+
+### Bug Fixes
+
+* **workflow:** swap docker step with simpler action ([c0a01e5](https://github.com/bsord/sonny/commit/c0a01e5df2bf2f95aef167dcd0db8cdb468317f0))
+
+
+
 ## [0.10.2](https://github.com/bsord/sonny/compare/0.10.1...0.10.2) (2020-10-13)
 
 
@@ -31,20 +40,6 @@
 ### Bug Fixes
 
 * **changelog:** use tags instead of version file for bumping ([b359205](https://github.com/bsord/sonny/commit/b35920504fdd7456ca5a42dd76a74b43ab724545))
-
-
-
-# [0.9.0](https://github.com/bsord/sonny/compare/0.7.0...0.9.0) (2020-10-13)
-
-
-### Bug Fixes
-
-* **changelog:** update custom action version ([83c4a33](https://github.com/bsord/sonny/commit/83c4a331e24133d75575dc07dee05d4c35614f7f))
-
-
-### Features
-
-* **changelog:** add customized changelog action ([19ed722](https://github.com/bsord/sonny/commit/19ed7229d8c285b8d57c37c7ac4582b3728deb56))
 
 
 
