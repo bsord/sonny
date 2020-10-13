@@ -56,27 +56,14 @@ jobs:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
           skip-version-file: true
-      
-      - name: Build, tag, and push Docker image
-        run: |
-          docker build . --file Dockerfile --tag $IMAGE_NAME
-          echo "${{ secrets.CR_PAT }}" | docker login -u ${{ secrets.CR_USERNAME }} --password-stdin
-          IMAGE_ID=$IMAGE_NAME
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          # Use Docker `latest` tag convention
-          echo $VERSION
-          [ "$VERSION" == "master" ] && VERSION=latest
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:latest
-          docker push $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:latest
+
+      - name: Build and publish docker image
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: bsord/sonny
+          username: ${{ secrets.secrets.CR_USERNAME }}
+          password: ${{ secrets.secrets.CR_PAT }}
+          tags: "latest,${{ steps.get-next-version.outputs.version }}"
 
       - name: Push Helm Chart
         uses: bsord/helm-push@v2
