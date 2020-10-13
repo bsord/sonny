@@ -1,3 +1,12 @@
+## [0.10.2](https://github.com/bsord/sonny/compare/0.10.1...0.10.2) (2020-10-13)
+
+
+### Bug Fixes
+
+* **changelog:** simplify action variables ([a851de5](https://github.com/bsord/sonny/commit/a851de54c225a71430ea122005d38a747506d6d1))
+
+
+
 ## [0.10.1](https://github.com/bsord/sonny/compare/0.10.0...0.10.1) (2020-10-13)
 
 
@@ -36,7 +45,6 @@
 ### Features
 
 * **changelog:** add customized changelog action ([19ed722](https://github.com/bsord/sonny/commit/19ed7229d8c285b8d57c37c7ac4582b3728deb56))
-* **tags:** add auto tag and changelog ([d261730](https://github.com/bsord/sonny/commit/d2617304fe531a3f668c56624f5c76609055b29a))
 
 
 
