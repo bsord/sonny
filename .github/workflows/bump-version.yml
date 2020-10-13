@@ -27,7 +27,7 @@ jobs:
 
       - name: Get next semver
         id: get-next-version
-        uses: bsord/conventional-changelog-action@v1
+        uses: bsord/conventional-changelog-action@v3.5.0
         with:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
@@ -53,7 +53,7 @@ jobs:
         uses: "actions/checkout@v2"
 
       - name: Conventional Changelog Action
-        uses: bsord/conventional-changelog-action@v1
+        uses: bsord/conventional-changelog-action@v3.5.0
         with:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
