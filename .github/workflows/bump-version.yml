@@ -6,10 +6,6 @@ name: "Bump, Tag, Build, and Publish"
 # CF_REPO_URL - ChartMusuem REPO URL in the format: 'https://h.cfcr.io/bsord/charts'
 # GITHUB_TOKEN - This one is assumed, provided by github automatically
 
-env:
-  # Docker image name to publish to
-  IMAGE_NAME: bsord/sonny
-
 on:
   push:
     branches:
@@ -60,7 +56,7 @@ jobs:
       - name: Build and publish docker image
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: bsord/sonny
+          name: ${{ github.repository }}
           username: ${{ secrets.CR_USERNAME }}
           password: ${{ secrets.CR_PAT }}
           tags: "latest,${{ steps.get-next-version.outputs.version }}"
