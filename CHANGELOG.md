@@ -1,3 +1,12 @@
+## [0.10.6](https://github.com/bsord/sonny/compare/0.10.5...0.10.6) (2020-10-13)
+
+
+### Bug Fixes
+
+* **workflow:** clean up secret names ([3213b1e](https://github.com/bsord/sonny/commit/3213b1e8bc7ea710b1ff478222cf54e7deec2bfa))
+
+
+
 ## [0.10.5](https://github.com/bsord/sonny/compare/0.10.4...0.10.5) (2020-10-13)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **changelog:** simplify action variables ([a851de5](https://github.com/bsord/sonny/commit/a851de54c225a71430ea122005d38a747506d6d1))
-
-
-
-## [0.10.1](https://github.com/bsord/sonny/compare/0.10.0...0.10.1) (2020-10-13)
-
-
-### Bug Fixes
-
-* **changelog:** remove skip commit preventing changelog ([0a863b6](https://github.com/bsord/sonny/commit/0a863b6863bf2e76b1ac0729547e84fcc383e0f2))
 
 
 
