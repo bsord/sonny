@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/bsord/sonny/compare/1.0.0...1.0.1) (2020-10-13)
+
+
+### Bug Fixes
+
+* **workflow:** break steps into conditional jobs ([d594a74](https://github.com/bsord/sonny/commit/d594a748b019380e96adac851497fd3e75d7fe32))
+
+
+
 # [1.0.0](https://github.com/bsord/sonny/compare/0.10.7...1.0.0) (2020-10-13)
 
 
@@ -41,15 +50,6 @@
 ### Bug Fixes
 
 * **workflow:** make docker image based on github repo ([df83190](https://github.com/bsord/sonny/commit/df83190d5553a964d3660e1146dd98e024f9d341))
-
-
-
-## [0.10.4](https://github.com/bsord/sonny/compare/0.10.3...0.10.4) (2020-10-13)
-
-
-### Bug Fixes
-
-* **workflow:** correct username and password variables for docker step in workflow ([ef83ace](https://github.com/bsord/sonny/commit/ef83aceb98e8ae671d821b8b3a469f9247b7b975))
 
 
 
