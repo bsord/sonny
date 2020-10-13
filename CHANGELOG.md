@@ -1,3 +1,12 @@
+## [0.10.7](https://github.com/bsord/sonny/compare/0.10.6...0.10.7) (2020-10-13)
+
+
+### Bug Fixes
+
+* **changelog:** remove unnecessary checkout in workflow ([d40c1b5](https://github.com/bsord/sonny/commit/d40c1b503609a98008327f22bc8e04114400e9c5))
+
+
+
 ## [0.10.6](https://github.com/bsord/sonny/compare/0.10.5...0.10.6) (2020-10-13)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **workflow:** swap docker step with simpler action ([c0a01e5](https://github.com/bsord/sonny/commit/c0a01e5df2bf2f95aef167dcd0db8cdb468317f0))
-
-
-
-## [0.10.2](https://github.com/bsord/sonny/compare/0.10.1...0.10.2) (2020-10-13)
-
-
-### Bug Fixes
-
-* **changelog:** simplify action variables ([a851de5](https://github.com/bsord/sonny/commit/a851de54c225a71430ea122005d38a747506d6d1))
 
 
 
