@@ -47,6 +47,9 @@ jobs:
           tag: "${{ steps.get-version.outputs.version }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Checkout source code
+        uses: "actions/checkout@v2"
 
       - name: Conventional Changelog Action
         uses: TriPSs/conventional-changelog-action@v3
