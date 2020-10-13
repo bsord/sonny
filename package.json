@@ -1,6 +1,6 @@
 {
   "name": "sonny",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "private": true,
   "author": "bsord <brandon.sorgdrager@gmail.com>",
   "description": "A slack automation bot",
