@@ -50,13 +50,13 @@ jobs:
           skip-version-file: true
 
       - name: Create Release
-          uses: actions/create-release@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.github_token }}
-          with:
-            tag_name: ${{ steps.get-next-version.outputs.version }}
-            release_name: ${{ steps.get-next-version.outputs.version }}
-            body: ${{ steps.get-next-version.outputs.clean_changelog }}
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        with:
+          tag_name: ${{ steps.get-next-version.outputs.version }}
+          release_name: ${{ steps.get-next-version.outputs.version }}
+          body: ${{ steps.get-next-version.outputs.clean_changelog }}
 
       - name: Build and publish docker image
         uses: elgohr/Publish-Docker-Github-Action@master
