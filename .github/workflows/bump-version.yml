@@ -61,8 +61,8 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: bsord/sonny
-          username: ${{ secrets.secrets.CR_USERNAME }}
-          password: ${{ secrets.secrets.CR_PAT }}
+          username: ${{ secrets.CR_USERNAME }}
+          password: ${{ secrets.CR_PAT }}
           tags: "latest,${{ steps.get-next-version.outputs.version }}"
 
       - name: Push Helm Chart
