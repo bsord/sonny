@@ -1,3 +1,12 @@
+## [0.10.5](https://github.com/bsord/sonny/compare/0.10.4...0.10.5) (2020-10-13)
+
+
+### Bug Fixes
+
+* **workflow:** make docker image based on github repo ([df83190](https://github.com/bsord/sonny/commit/df83190d5553a964d3660e1146dd98e024f9d341))
+
+
+
 ## [0.10.4](https://github.com/bsord/sonny/compare/0.10.3...0.10.4) (2020-10-13)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **changelog:** remove skip commit preventing changelog ([0a863b6](https://github.com/bsord/sonny/commit/0a863b6863bf2e76b1ac0729547e84fcc383e0f2))
-
-
-
-# [0.10.0](https://github.com/bsord/sonny/compare/0.9.1...0.10.0) (2020-10-13)
-
-
-### Features
-
-* **changelog:** generate change log only on feature bump ([51527bd](https://github.com/bsord/sonny/commit/51527bdd0524d17b5ce37b329ecbe69ec4096b6a))
 
 
 
