@@ -58,7 +58,6 @@ jobs:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
           skip-version-file: true
-          skip-commit: true
       
       - name: Build, tag, and push Docker image
         run: |
