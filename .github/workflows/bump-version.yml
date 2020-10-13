@@ -20,16 +20,16 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
-      - name: Get next semver
+      - name: Get next version
         id: get-next-version
-        uses: bsord/conventional-changelog-action@v3.5.0
+        uses: bsord/conventional-changelog-action@v3.7.0
         with:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
           skip-version-file: true
           dry-run: true
 
-      - name: Update source code versions
+      - name: Update version in version files
         run: |
           sed -r -i 's/(\"version\":[^*]\")([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.version }}/g' package.json
           sed -r -i 's/(version:[^*]|appVersion:[^*])([[:alnum:].]*)/\1${{ steps.get-next-version.outputs.version }}/g' ./chart/Chart.yaml
@@ -42,11 +42,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Checkout source code
-        uses: "actions/checkout@v2"
-
-      - name: Conventional Changelog Action
-        uses: bsord/conventional-changelog-action@v3.5.0
+      - name: Create tag and generate change log
+        uses: bsord/conventional-changelog-action@v3.7.0
         with:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
