@@ -40,8 +40,6 @@ jobs:
     steps:
       - name: Checkout source code
         uses: "actions/checkout@v2"
-        with:
-          ref: ${{ github.ref }}
           
       - name: Update version in version files
         run: |
@@ -64,8 +62,6 @@ jobs:
     steps:
       - name: Checkout source code
         uses: "actions/checkout@v2"
-        with:
-          ref: ${{ github.ref }}
 
       - name: Generate changelog
         id: changelog
@@ -92,11 +88,9 @@ jobs:
     steps:
       - name: Checkout source code
         uses: "actions/checkout@v2"
-        with:
-          ref: ${{ github.ref }}
 
       - name: Build and publish Docker image
-        uses: elgohr/Publish-Docker-Github-Action@v2.22
+        uses: elgohr/Publish-Docker-Github-Action@2.22
         with:
           name: ${{ github.repository }}
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -111,8 +105,6 @@ jobs:
     steps:
       - name: Checkout source code
         uses: "actions/checkout@v2"
-        with:
-          ref: ${{ github.ref }}
 
       - name: Push Helm chart
         uses: bsord/helm-push@v2
