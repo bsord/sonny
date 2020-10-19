@@ -22,12 +22,13 @@ jobs:
 
       - name: Get next version
         id: get-next-version
-        uses: bsord/conventional-changelog-action@v3.7.0
+        uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.github_token }}
           tag-prefix: ''
           skip-version-file: true
-          dry-run: true
+        env:
+          ENV: 'dont-use-git'
 
       - name: Update version in version files
         if: ${{ steps.get-next-version.outputs.skipped == 'false' }}
